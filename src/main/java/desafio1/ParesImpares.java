@@ -2,13 +2,14 @@ package desafio1;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class ParesImpares {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Quantos números deseja digitar?");
+        System.out.print("Quantos números deseja digitar?: ");
         int quantidadeNumeros = scanner.nextInt();
 
         System.out.println("Digite os números:");
@@ -17,9 +18,9 @@ public class ParesImpares {
         for (int i = 0; i < quantidadeNumeros; i++) {
             int numero = scanner.nextInt();
 
-                if (numero < 0){
-                    throw new Exception("Digite número inteiros não negativos");
-                }
+            if (numero < 0) {
+                throw new Exception("Digite número inteiros não negativos");
+            }
 
             numeros.add(numero);
         }
@@ -33,7 +34,7 @@ public class ParesImpares {
                 Collections.sort(numerosPares);
             } else {
                 numerosImpares.add(numero);
-                Collections.sort(numerosImpares, Collections.reverseOrder());
+                numerosImpares.sort(Collections.reverseOrder());
             }
         }
 
@@ -49,5 +50,9 @@ public class ParesImpares {
             System.out.println("Nenhum número ímpar foi digitado.");
         }
 
+        List<Integer> todosNumeros = new ArrayList<>();
+        todosNumeros.addAll(numerosPares);
+        todosNumeros.addAll(numerosImpares);
+        System.out.println(todosNumeros);
     }
 }
